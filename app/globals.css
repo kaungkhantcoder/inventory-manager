@@ -1,0 +1,119 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+/* @import 'shadcn/tailwind.css'; */
+
+@theme inline {
+  --font-sans: var(--font-inter), 'Inter', system-ui, sans-serif;
+  --font-mono: var(--font-roboto-mono), 'Roboto Mono', ui-monospace, monospace;
+
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-primary-soft: var(--primary-soft);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --color-navy: var(--navy);
+
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-success-text: var(--success-text);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --color-warning-text: var(--warning-text);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-danger-text: var(--danger-text);
+  --color-expiry: var(--expiry);
+  --color-expiry-soft: var(--expiry-soft);
+  --color-expiry-text: var(--expiry-text);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+}
+
+:root {
+  color-scheme: light;
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
+  --primary: #2563eb;
+  --primary-foreground: #ffffff;
+  --primary-soft: #eff6ff;
+  --secondary: #f1f5f9;
+  --secondary-foreground: #0f172a;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  --accent: #f1f5f9;
+  --accent-foreground: #0f172a;
+  --destructive: #dc2626;
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #2563eb;
+  --navy: #0f172a;
+  --radius: 0.5rem;
+
+  --success: #16a34a;
+  --success-soft: #f0fdf4;
+  --success-text: #15803d;
+  --warning: #d97706;
+  --warning-soft: #fffbeb;
+  --warning-text: #b45309;
+  --danger: #dc2626;
+  --danger-soft: #fef2f2;
+  --danger-text: #b91c1c;
+  --expiry: #7c3aed;
+  --expiry-soft: #f5f3ff;
+  --expiry-text: #6d28d9;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply bg-background;
+  }
+  body {
+    @apply bg-background text-foreground text-sm;
+    font-feature-settings: 'cv11', 'ss01';
+  }
+  button:not(:disabled),
+  [role='button']:not([aria-disabled='true']) {
+    cursor: pointer;
+  }
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Grid cell inputs used in the bulk entry sheet and inline editors */
+.cell-input {
+  @apply h-10 w-full bg-transparent px-2.5 text-sm text-foreground outline-none placeholder:text-muted-foreground/70;
+  @apply focus:bg-primary-soft focus:ring-2 focus:ring-inset focus:ring-primary;
+}
+.cell-input[readonly] {
+  @apply bg-muted/60 text-muted-foreground;
+}
+.cell-input[aria-invalid='true'] {
+  @apply bg-danger-soft ring-1 ring-inset ring-danger;
+}
